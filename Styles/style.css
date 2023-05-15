@@ -4,13 +4,18 @@
   box-sizing: border-box;
 }
 
+audio {
+  display: none;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   color: ghostwhite;
 }
 
 .wrapper {
-  background-color: rgb(38, 38, 139);
+  background: rgb(47, 2, 79);
+  background: radial-gradient(circle, rgb(47, 2, 79) 0%, rgb(24, 1, 49) 76%, rgb(24, 1, 49) 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,13 +23,47 @@ body {
   height: 100vh;
 }
 
-h1 {
-  text-align: center;
+figure {
+  background: linear-gradient(67.25deg, #00109F 0%, rgba(80, 97, 255, 0.54) 33.48%, #0085FF 100.45%, rgba(217, 217, 217, 0.019802) 100.45%);
+}
+figure img {
+  position: absolute;
+  width: 100%;
+  opacity: 45%;
+  bottom: 0;
+  left: 0;
+  filter: drop-shadow(0 0 10rem rgb(90, 0, 159));
 }
 
+h1 {
+  z-index: 1;
+  font-family: "Alien Invader", sans-serif;
+  padding-bottom: 100px;
+  font-size: 6em;
+  font-weight: 100;
+  text-shadow: rgb(97, 92, 230) 0 0 20px;
+}
+
+#gameStatus {
+  text-align: center;
+  font-size: 2.5em;
+  animation: blink-2 1.5s infinite both;
+}
+
+@keyframes blink-2 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .cell {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,14 +82,18 @@ h1 {
 }
 
 .card {
+  font-family: "Alien Invader", sans-serif;
+  text-shadow: rgb(74, 68, 225) 0 0 20px;
   border: 1px solid;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 50px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
 }
 
 .board {
-  width: 300px;
+  width: 450px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -61,13 +104,14 @@ h1 {
 
 #gameEnd {
   position: fixed;
+  z-index: 2;
   display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: black;
+  background: rgb(47, 2, 79);
 }
 
 #gameEnd p, #gameEnd input {
@@ -75,46 +119,33 @@ h1 {
 }
 
 #gameEnd p {
-  font-size: 3em;
+  font-size: 5em;
+  font-weight: 900;
+  font-style: italic;
 }
 
 input {
+  font-family: "Alien Invader", sans-serif;
   width: 200px;
   height: 55px;
   border: none;
-  border-radius: 10px;
-  font-size: 22px;
-  background-color: rgb(38, 38, 139);
+  border-radius: 7px;
+  font-size: 17px;
+  transform: skewX(-10deg);
   color: ghostwhite;
   margin: 50px 0;
   transition: all 1s ease-in-out;
+  animation: color-change-2x 2s linear infinite alternate both;
 }
 input:hover {
-  background-color: ghostwhite;
-  color: rgb(38, 38, 139);
-  animation: heartbeat 1.5s ease-in-out infinite both;
+  transform: scale(1.05);
 }
 
-@keyframes heartbeat {
-  from {
-    transform: scale(1);
-    transform-origin: center center;
-    animation-timing-function: ease-out;
+@keyframes color-change-2x {
+  0% {
+    background: rgb(131, 58, 180);
   }
-  10% {
-    transform: scale(0.91);
-    animation-timing-function: ease-in;
-  }
-  17% {
-    transform: scale(0.98);
-    animation-timing-function: ease-out;
-  }
-  33% {
-    transform: scale(0.87);
-    animation-timing-function: ease-in;
-  }
-  45% {
-    transform: scale(1);
-    animation-timing-function: ease-out;
+  100% {
+    background: rgb(195, 42, 146);
   }
 }/*# sourceMappingURL=style.css.map */

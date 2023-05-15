@@ -4,13 +4,19 @@
     box-sizing: border-box;
 }
 
+audio{
+    display: none;
+}
+
+
 body{
     font-family: 'Roboto', sans-serif;
     color: ghostwhite;
 }
 
 .wrapper{
-    background-color: rgb(38, 38, 139);
+    background: rgb(47,2,79);
+    background: radial-gradient(circle, rgba(47,2,79,1) 0%, rgba(24,1,49,1) 76%, rgba(24,1,49,1) 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,13 +24,52 @@ body{
     height: 100vh;
 }
 
-h1{
-    text-align: center;
+
+figure{
+    background: linear-gradient(67.25deg, #00109F 0%, rgba(80, 97, 255, 0.54) 33.48%, #0085FF 100.45%, rgba(217, 217, 217, 0.019802) 100.45%);
+    img{
+        position: absolute;
+        width: 100%;
+        opacity: 45%;
+        bottom: 0;
+        left: 0;
+        filter: drop-shadow(0 0 10rem rgb(90, 0, 159));
+    }
 }
 
+h1{
+    z-index: 1;
+    font-family: 'Alien Invader', sans-serif;
+    padding-bottom: 100px;
+    font-size: 6em;
+    font-weight: 100;
+    text-shadow: rgb(97, 92, 230) 0 0 20px;
+
+}
+
+#gameStatus{
+    text-align: center;
+    font-size: 2.5em;
+    -webkit-animation: blink-2 1.5s infinite both;
+	        animation: blink-2 1.5s infinite both;
+}
+
+@keyframes blink-2 {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+
 .cell{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,14 +83,17 @@ h1{
 .cell:nth-child(6) ~ .cell{border-bottom: none;}
 
 .card{
+    font-family: 'Alien Invader', sans-serif;
+    text-shadow: rgb(74, 68, 225) 0 0 20px;
     border: 1px solid;
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 50px;
+    backdrop-filter: blur(10px);
 }
 
 .board{
-    width: 300px;
+    width: 450px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -54,76 +102,51 @@ h1{
 
 #gameEnd{
     position: fixed;
+    z-index: 2;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: black;
+    background: rgb(47,2,79);
 }
 
 #gameEnd p, #gameEnd input{
-    // position: fixed;
-    // top: 50%; left: 50%;
-    // transform: translate(-50%, -50%);
     text-align: center;
 }
 
 #gameEnd p {
-            font-size: 3em;
+            font-size: 5em;
+            font-weight: 900;
+            font-style: italic;
+            
 }
 
-input{
+input{font-family: 'Alien Invader', sans-serif;
     width: 200px;
     height: 55px;
     border: none;
-    border-radius: 10px;
-    font-size: 22px;
-    background-color: rgb(38, 38, 139);
+    border-radius: 7px;
+    font-size: 17px;
+    transform: skewX(-10deg);
     color: ghostwhite;
     margin: 50px 0;
     transition: all 1s ease-in-out;
+    -webkit-animation: color-change-2x 2s linear infinite alternate both;
+	        animation: color-change-2x 2s linear infinite alternate both;
     &:hover{
-        background-color: ghostwhite;
-        color: rgb(38, 38, 139);
-        -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
-	        animation: heartbeat 1.5s ease-in-out infinite both;
+        transform: scale(1.05);
     }
 }
 
-@keyframes heartbeat {
-    from {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-      -webkit-transform-origin: center center;
-              transform-origin: center center;
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
+@keyframes color-change-2x {
+    0% {
+        background: rgba(131,58,180,1);
     }
-    10% {
-      -webkit-transform: scale(0.91);
-              transform: scale(0.91);
-      -webkit-animation-timing-function: ease-in;
-              animation-timing-function: ease-in;
-    }
-    17% {
-      -webkit-transform: scale(0.98);
-              transform: scale(0.98);
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-    }
-    33% {
-      -webkit-transform: scale(0.87);
-              transform: scale(0.87);
-      -webkit-animation-timing-function: ease-in;
-              animation-timing-function: ease-in;
-    }
-    45% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
+    100% {
+        background: rgba(195,42,146,1);
     }
   }
+
   
