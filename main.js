@@ -12,6 +12,7 @@ const playerTwo = 'O';
 // Initialisation du joueur en cours
 let playerTurn = playerOne;
 
+
 // Combinaisons gagnantes possibles
 const winningPatterns = [
     [0, 1, 2],
@@ -44,10 +45,10 @@ function playGame(e) {
         updateGameStatus("draw");
         return endGame();
     }
-
+    
     // Mise à jour du statut du jeu
     updateGameStatus(playerTurn);
-
+    
     // Passage au joueur suivant
     playerTurn == playerOne ? playerTurn = playerTwo : playerTurn = playerOne;
 }
@@ -68,33 +69,35 @@ function checkDraw() {
     });
 }
 
+
 // Mise à jour du statut du jeu
 function updateGameStatus(status) {
     let statusText;
-
+    
     switch (status) {
         case 'X':
             statusText = "Au tour du joueur 2 (O)";
             break;
-        case 'O':
-            statusText = "Au tour du joueur 1 (X)";
-            break;
-        case 'winsX':
-            statusText = "Le joueur 1 a gagné";
-            break;
-        case 'winsO':
-            statusText = "Le joueur 2 a gagné";
-            break;
-        case 'draw':
-            statusText = "Egalité ! Personne ne gagne !";
-            break;
-    }
-
-    // Mise à jour de l'affichage du statut du jeu
-    gameStatus.innerHTML = statusText;
-    endGameStatus.innerHTML = statusText;
-}
-
-//
+            case 'O':
+                statusText = "Au tour du joueur 1 (X)";
+                break;
+                case 'winsX':
+                    statusText = "Le joueur 1 a gagné";
+                    break;
+                    case 'winsO':
+                        statusText = "Le joueur 2 a gagné";
+                        break;
+                        case 'draw':
+                            statusText = "Egalité ! Personne ne gagne !";
+                            break;
+                        }
+                        
+                        // Mise à jour de l'affichage du statut du jeu
+                        gameStatus.innerHTML = statusText;
+                        endGameStatus.innerHTML = statusText;
+                    }
+                    
+                    //
 function endGame() {document.getElementById('gameEnd').style.display = "flex"}
 function reloadGame() {window.location.reload()}
+function setPlayerName() {document.getElementById('setNames').style.display = "none"}
