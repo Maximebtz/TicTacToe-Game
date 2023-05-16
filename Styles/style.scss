@@ -8,9 +8,11 @@
 body{
     font-family: 'Roboto', sans-serif;
     color: ghostwhite;
+    overflow: hidden;
 }
 
 .wrapper{
+    
     background: rgb(47,2,79);
     background: radial-gradient(circle, rgba(47,2,79,1) 0%, rgba(24,1,49,1) 76%, rgba(24,1,49,1) 100%);
     display: flex;
@@ -21,17 +23,28 @@ body{
 }
 
 
-figure{
-    background: linear-gradient(67.25deg, #00109F 0%, rgba(80, 97, 255, 0.54) 33.48%, #0085FF 100.45%, rgba(217, 217, 217, 0.019802) 100.45%);
     img{
         position: absolute;
         width: 100%;
-        opacity: 45%;
         bottom: 0;
         left: 0;
-        filter: drop-shadow(0 0 10rem rgb(90, 0, 159));
+        filter: drop-shadow(0 0 11rem rgb(90, 0, 159));
+        -webkit-animation: slide-in-left 3s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+	        animation: slide-in-left 3s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
     }
-}
+    @keyframes slide-in-left {
+        0% {
+          -webkit-transform: translateX(-1000px);
+                  transform: translateX(-1000px);
+          opacity: 0;
+        }
+        100% {
+          -webkit-transform: translateX(0);
+                  transform: translateX(0);
+          opacity: 45%;
+        }
+      }
+
 
 h1{
     z-index: 1;
@@ -39,18 +52,31 @@ h1{
     padding-bottom: 100px;
     font-size: 6em;
     font-weight: 100;
-    text-shadow: rgb(97, 92, 230) 0 0 20px;
-
+    text-shadow: rgb(123, 41, 238) 0 0 20px;
+    -webkit-animation: slide-in-right 3s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+	        animation: slide-in-right 3s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
 }
+@keyframes slide-in-right {
+    0% {
+      -webkit-transform: translateX(1000px);
+              transform: translateX(1000px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      opacity: 1;
+    }
+  }
 
 #gameStatus{
     text-align: center;
     font-size: 2.5em;
-    -webkit-animation: blink-2 1.5s infinite both;
-	        animation: blink-2 1.5s infinite both;
+    -webkit-animation: blink 1.5s infinite both;
+	        animation: blink 1.5s infinite both;
 }
 
-@keyframes blink-2 {
+@keyframes blink {
     0% {
       opacity: 1;
     }
@@ -85,7 +111,7 @@ h1{
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 50px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(30px);
 }
 
 .board{

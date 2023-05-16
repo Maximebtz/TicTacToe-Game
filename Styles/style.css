@@ -7,6 +7,7 @@
 body {
   font-family: "Roboto", sans-serif;
   color: ghostwhite;
+  overflow: hidden;
 }
 
 .wrapper {
@@ -19,27 +20,45 @@ body {
   height: 100vh;
 }
 
-figure {
-  background: linear-gradient(67.25deg, #00109F 0%, rgba(80, 97, 255, 0.54) 33.48%, #0085FF 100.45%, rgba(217, 217, 217, 0.019802) 100.45%);
-}
-figure img {
+img {
   position: absolute;
   width: 100%;
-  opacity: 45%;
   bottom: 0;
   left: 0;
-  filter: drop-shadow(0 0 10rem rgb(90, 0, 159));
+  filter: drop-shadow(0 0 11rem rgb(90, 0, 159));
+  animation: slide-in-left 3s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
 
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 45%;
+  }
+}
 h1 {
   z-index: 1;
   font-family: "Alien Invader", sans-serif;
   padding-bottom: 100px;
   font-size: 6em;
   font-weight: 100;
-  text-shadow: rgb(97, 92, 230) 0 0 20px;
+  text-shadow: rgb(123, 41, 238) 0 0 20px;
+  animation: slide-in-right 3s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
 }
 
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 #gameStatus {
   text-align: center;
   font-size: 2.5em;
@@ -84,8 +103,8 @@ h1 {
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 50px;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(30px);
+          backdrop-filter: blur(30px);
 }
 
 .board {
