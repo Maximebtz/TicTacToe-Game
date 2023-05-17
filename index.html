@@ -16,26 +16,23 @@
             <figure>
                 <img src="./Img/—Pngtree—futuristic technology fashion creative cyberpunk_9015388.png" alt="">
             </figure>
-        <div id="gameEnd">
+        <div id="gameEnd" class="smooth-appear">
             <p class="white" id="endGameStatus">...</p>
             <input type="submit" value="Recommencer" id="reloadGame" onclick="reloadGame()">
         </div>
-        <div id="setNames" class="setNames">
-            <form  action="">
-                <div class="form">
-                    <div id="setName1" class="setName1">
-                        <p>Set Name <span>Player One</span></p>
+        <div id="setNames" class="setNames smooth-disappear" >
+            <div class="form">
+                <div id="setName1" class="setName1">
+                    <p>Set Name <span>Player One</span></p>
                         <!-- <input id="setPlayerOne" type="text"> -->
-                    </div>
-                    <div id="setName2" class="setName2">
-                        <p>Set Name <span>Player Two</span> </p>
-                        <!-- <input class="setPlayerTwo" type="text"> -->
-                    </div>
                 </div>
-                <input class="inputPlayerName" type="submit" value="Entrée" onclick="setPlayerName()">
-            </form>
+                <div id="setName2" class="setName2">
+                    <p>Set Name <span>Player Two</span> </p>
+                        <!-- <input class="setPlayerTwo" type="text"> -->
+                </div>
+            </div>
+            <button id="inputPlayerName" class="inputPlayerName">Entrée</button>
         </div>
-
         <h1>TicTacToe</h1>
         <div class="card">
             <div class="board">
@@ -51,7 +48,7 @@
             </div>
         </div>
 
-        <h2 id="gameStatus">Le joueur 1 commence</h2>
+        <h2 id="gameStatus"></h2>
     </div>
     <script src="./main.js"></script>
 </body>

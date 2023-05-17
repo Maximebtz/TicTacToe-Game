@@ -26,7 +26,7 @@ setNames2.appendChild(inputName2);
 inputName1.addEventListener("click", function(){
     inputName1.value = ""})
       
-    inputName2.addEventListener("click", function(){
+inputName2.addEventListener("click", function(){
     inputName2.value = ""})
 
 
@@ -35,19 +35,36 @@ inputName1.addEventListener("click", function(){
 const playerOne = 'X';
 const playerTwo = 'O';
 
+// nom des joueurs
+let namePlayer1 = "";
+let namePlayer2 = "";
+
 // Initialisation du joueur en cours
 let playerTurn = playerOne;
 
+// Try to remove the first page where we can set players names  
 function setPlayerName() {
-    var playerNameDiv = document.getElementById('playerName');
-    
-    playerNameDiv.innerHTML = document.getElementById('inputPlayerName').value;
-    
-    document.getElementById('setNames').style.display = 'none';
-  }
+    namePlayer1 = inputName1.value;
+    namePlayer2 = inputName2.value;
+
+    updateGameStatus("init");
+
+    let x = document.getElementById("setNames");
+    if (x.style.display == "none") {
+        x.style.display = "flex";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+document.getElementById("inputPlayerName").addEventListener("click", function() {
+    setPlayerName();
+});
+
 
 // Combinaisons gagnantes possibles
 const winningPatterns = [
+
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -56,6 +73,7 @@ const winningPatterns = [
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6]
+
 ];
 
 // winningPatterns.style.color = "red";
@@ -111,21 +129,24 @@ function updateGameStatus(status) {
     
     switch (status) {
         case 'X':
-            statusText = "Au tour du joueur 2 (O)";
+            statusText = `Au tour de ${namePlayer2} (O)`;
             break;
-            case 'O':
-                statusText = "Au tour du joueur 1 (X)";
-                break;
-                case 'winsX':
-                    statusText = "Le joueur 1 a gagné";
-                    break;
-                    case 'winsO':
-                        statusText = "Le joueur 2 a gagné";
-                        break;
-                        case 'draw':
-                            statusText = "Egalité ! Personne ne gagne !";
-                            break;
-                        }
+        case 'O':
+            statusText = `Au tour de ${namePlayer1} (X)`;
+            break;
+        case 'winsX':
+            statusText = `${namePlayer1} a gagné`;
+            break;
+        case 'winsO':
+            statusText = `${namePlayer2} a gagné`;
+            break;
+        case 'draw':
+            statusText = "Egalité ! Personne ne gagne !";
+            break;
+        case 'init':
+            statusText = `${namePlayer1} commence !`;
+            break;
+    }
                         
     // Mise à jour de l'affichage du statut du jeu
     gameStatus.innerHTML = statusText;
@@ -135,5 +156,11 @@ function updateGameStatus(status) {
 
                     
 // function setPlayerName() {document.getElementById('setNames').style.display = "none"};
-function endGame() {document.getElementById('gameEnd').style.display = "flex"};
+function endGame() {
+    // Déclarer en variable pour changer en dessous plusieurs éléments css
+    let gameEndElement = document.getElementById('gameEnd');
+    gameEndElement.classList.add('smooth-appear');
+    gameEndElement.style.display = 'flex';
+};
+
 function reloadGame() {window.location.reload()};

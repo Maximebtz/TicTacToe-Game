@@ -36,6 +36,7 @@ body{
     }
     .setNames{
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       position: absolute;
@@ -43,7 +44,6 @@ body{
       width: 100%;
       z-index: 1;
       backdrop-filter: blur(18px) brightness(0.9);
-
     }
 
     .setName1, .setName2{
@@ -65,12 +65,25 @@ body{
       }
     }
 
-    #inputPlayerName{
-      transform: none;
+    .inputPlayerName{font-family: 'Alien Invader', sans-serif;
+      width: 200px;
+      height: 55px;
+      border: none;
+      border-radius: 7px;
+      font-size: 17px;
+      transform: skewX(-10deg);
+      color: ghostwhite;
+      margin: 50px 0;
+      transition: all 1s ease-in-out;
+      -webkit-animation: color-change-2x 2s linear infinite alternate both;
+            animation: color-change-2x 2s linear infinite alternate both;
       &:hover{
-        transform: skewX(-10deg);
+          transform: scale(1.05);
       }
-    }
+      &:focus{
+        outline: ghostwhite 1px solid;
+      }
+  }
 
     input.setPlayerName {
       transform: none;
@@ -225,7 +238,23 @@ body{
 
 
 //End Game
-    #gameEnd{
+
+
+
+.smooth-appear {
+  animation: fade-in 0.3s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#gameEnd{
         position: fixed;
         z-index: 2;
         display: none;
