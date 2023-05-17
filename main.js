@@ -5,6 +5,32 @@ const cells = document.querySelectorAll('[data-cell]');
 const gameStatus = document.getElementById('gameStatus');
 const endGameStatus = document.getElementById('endGameStatus');
 
+
+
+// Création d'un input dans le HTML avec createElement pour choisir le nom des joueurs 
+const setNames1 = document.querySelector("#setName1");
+const setNames2 = document.querySelector("#setName2");
+
+const inputName1 = document.createElement("input");
+const inputName2 = document.createElement("input");
+
+inputName1.value = "Joueur 1";
+inputName2.value = "Joueur 2";
+
+inputName1.classList.add("setPlayerName");
+inputName2.classList.add("setPlayerName");
+
+setNames1.appendChild(inputName1);
+setNames2.appendChild(inputName2);
+
+inputName1.addEventListener("click", function(){
+    inputName1.value = ""})
+      
+    inputName2.addEventListener("click", function(){
+    inputName2.value = ""})
+
+
+
 // Symboles des joueurs
 const playerOne = 'X';
 const playerTwo = 'O';
@@ -12,6 +38,13 @@ const playerTwo = 'O';
 // Initialisation du joueur en cours
 let playerTurn = playerOne;
 
+function setPlayerName() {
+    var playerNameDiv = document.getElementById('playerName');
+    
+    playerNameDiv.innerHTML = document.getElementById('inputPlayerName').value;
+    
+    document.getElementById('setNames').style.display = 'none';
+  }
 
 // Combinaisons gagnantes possibles
 const winningPatterns = [
@@ -24,6 +57,8 @@ const winningPatterns = [
     [0, 4, 8],
     [2, 4, 6]
 ];
+
+// winningPatterns.style.color = "red";
 
 // Ajout d'un écouteur de clic à chaque cellule
 cells.forEach(cell => {
@@ -92,12 +127,13 @@ function updateGameStatus(status) {
                             break;
                         }
                         
-                        // Mise à jour de l'affichage du statut du jeu
-                        gameStatus.innerHTML = statusText;
-                        endGameStatus.innerHTML = statusText;
-                    }
+    // Mise à jour de l'affichage du statut du jeu
+    gameStatus.innerHTML = statusText;
+    endGameStatus.innerHTML = statusText;
+}
+             
+
                     
-                    //
-function endGame() {document.getElementById('gameEnd').style.display = "flex"}
-function reloadGame() {window.location.reload()}
-function setPlayerName() {document.getElementById('setNames').style.display = "none"}
+// function setPlayerName() {document.getElementById('setNames').style.display = "none"};
+function endGame() {document.getElementById('gameEnd').style.display = "flex"};
+function reloadGame() {window.location.reload()};

@@ -20,23 +20,23 @@
             <p class="white" id="endGameStatus">...</p>
             <input type="submit" value="Recommencer" id="reloadGame" onclick="reloadGame()">
         </div>
-
-        <h1>TicTacToe</h1>
         <div id="setNames" class="setNames">
             <form  action="">
                 <div class="form">
-                    <div  class="setName1">
+                    <div id="setName1" class="setName1">
                         <p>Set Name <span>Player One</span></p>
-                        <input id="setPlayerOne" type="text">
+                        <!-- <input id="setPlayerOne" type="text"> -->
                     </div>
-                    <div class="setName2">
+                    <div id="setName2" class="setName2">
                         <p>Set Name <span>Player Two</span> </p>
-                        <input id="setPlayerTwo" type="text">
+                        <!-- <input class="setPlayerTwo" type="text"> -->
                     </div>
                 </div>
-                <input id="inputPlayerName" type="submit" value="Entrée" onclick="setPlayerName()">
+                <input class="inputPlayerName" type="submit" value="Entrée" onclick="setPlayerName()">
             </form>
         </div>
+
+        <h1>TicTacToe</h1>
         <div class="card">
             <div class="board">
                 <div class="cell" data-cell></div>

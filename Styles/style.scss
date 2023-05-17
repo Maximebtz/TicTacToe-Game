@@ -72,15 +72,16 @@ body{
       }
     }
 
-    #setPlayerOne, #setPlayerTwo{
-      background-color: rgb(165, 35, 124);
-      animation: none;
+    input.setPlayerName {
       transform: none;
+      animation: none;
+      background-color: rgb(165, 35, 124);
       transition: all 1.5s ease-in-out;
       &:focus{
         transform: scale(1.05);
       }
     }
+    
 
     .setName1{
       opacity: 100%;
