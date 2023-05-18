@@ -312,7 +312,6 @@ body{
         
         .wrapper {
           background-size: cover;
-          width: 101%;
         }
         .form{
           flex-direction: column;
@@ -338,6 +337,10 @@ body{
 
         .white {
           padding: 0 20px;
+          font-size: smaller;
+        }
+        #gameEnd p {
+          font-size: 4em;
         }
       }
 
