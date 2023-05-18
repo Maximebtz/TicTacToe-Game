@@ -1,2 +1,2 @@
 # TicTacToe-Game
-[Little game in Javascript](https://futur-tictactoe.netlify.app/)
+https://futur-tictactoe.netlify.app/
