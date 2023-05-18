@@ -293,17 +293,31 @@ input:hover {
   }
   .setNames {
     height: 100%;
+    justify-content: start;
+    padding: 20px;
+  }
+  .setName1, .setName2 {
+    width: 100%;
+    border: 1px solid;
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(30px);
+            backdrop-filter: blur(30px);
+    padding: 50px 0;
+    margin: 20px 0;
+  }
+  .inputPlayerName {
+    margin: 30px 0;
   }
   h1 {
     z-index: 0;
-    padding: 0 0 50px 0;
+    padding: 0 0 0 0;
     font-size: 50px;
     max-width: 500px;
     min-width: 200px;
   }
   .card {
     transform: scale(0.75);
-    margin-bottom: none;
+    margin-bottom: 0;
   }
   #gameStatus {
     padding: 0 20px;
@@ -314,27 +328,5 @@ input:hover {
   }
   #gameEnd p {
     font-size: 4em;
-  }
-  .setName1, .setName2 {
-    width: 89%;
-    border: 1px solid;
-    border-radius: 10px;
-    -webkit-backdrop-filter: blur(30px);
-            backdrop-filter: blur(30px);
-    z-index: 1;
-    padding: 50px;
-    margin: 20px;
-  }
-  .setName1 span, .setName2 span {
-    font-weight: 700;
-    font-size: larger;
-  }
-  .setName1 input, .setName2 input {
-    text-align: center;
-    margin: 50px 0 0 0;
-    outline: none;
-  }
-  .inputPlayerName {
-    margin: 0;
   }
 }/*# sourceMappingURL=style.css.map */
