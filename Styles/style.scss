@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 
@@ -9,6 +10,7 @@ body{
     font-family: 'Roboto', sans-serif;
     color: ghostwhite;
     overflow: hidden;
+    height: max-content;
 }
 
 .wrapper{
@@ -300,6 +302,41 @@ body{
         }
         100% {
             background: rgba(195,42,146,1);
+        }
+      }
+
+
+      //Responsive
+
+      @media only screen and (max-width: 500px) {
+        
+        .wrapper {
+          background-size: cover;
+        }
+        .form{
+          flex-direction: column;
+          text-align: center;
+        }
+
+        h1{
+          z-index: 0;
+          padding: 0 0 50px 0;
+          font-size: 50px;
+          max-width: 500px;
+          min-width: 200px;
+        }
+
+        .card {
+          transform: scale(0.75);
+          margin-bottom: none;
+        }
+
+        #gameStatus {
+          padding: 0 20px ;
+        }
+
+        .white {
+          padding: 0 20px;
         }
       }
 
