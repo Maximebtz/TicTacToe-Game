@@ -69,7 +69,7 @@ form {
 .inputPlayerName {
   font-family: "Alien Invader", sans-serif;
   width: 200px;
-  height: 55px;
+  min-height: 55px;
   border: none;
   border-radius: 7px;
   font-size: 17px;
@@ -285,6 +285,7 @@ input:hover {
 @media only screen and (max-width: 500px) {
   .wrapper {
     background-size: cover;
+    overflow: hidden;
   }
   .form {
     width: 90%;
