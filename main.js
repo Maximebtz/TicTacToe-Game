@@ -29,7 +29,9 @@ inputName1.addEventListener("click", function(){
 inputName2.addEventListener("click", function(){
     inputName2.value = ""})
 
-
+//Score
+let scorePlayerOne = document.getElementById("score-p-one")
+let scorePlayerTwo = document.getElementById("score-p-two")
 
 // Symboles des joueurs
 const playerOne = 'X';
@@ -55,6 +57,9 @@ function setPlayerName() {
     } else {
         x.style.display = "none";
     }
+
+    scorePlayerOne.innerHTML = namePlayer1
+    scorePlayerTwo.innerHTML = namePlayer2
 }
 
 document.getElementById("inputPlayerName").addEventListener("click", function() {
