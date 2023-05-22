@@ -1,10 +1,10 @@
 // Sélection des cellules du jeu
 const cells = document.querySelectorAll('[data-cell]');
 
+
 // Sélection des éléments d'affichage du statut du jeu et de la fin de partie
 const gameStatus = document.getElementById('gameStatus');
 const endGameStatus = document.getElementById('endGameStatus');
-
 
 
 // Création d'un input dans le HTML avec createElement pour choisir le nom des joueurs 
