@@ -148,7 +148,7 @@ img {
 h1 {
   z-index: 1;
   font-family: "Alien Invader", sans-serif;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   font-size: 6em;
   font-weight: 100;
   text-shadow: rgb(123, 41, 238) 0 0 20px;
@@ -183,8 +183,8 @@ h1 {
   }
 }
 .cell {
-  width: 150px;
-  height: 150px;
+  width: 133px;
+  height: 133px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -208,13 +208,14 @@ h1 {
   border: 1px solid;
   padding: 20px;
   border-radius: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   -webkit-backdrop-filter: blur(30px);
           backdrop-filter: blur(30px);
 }
 
 .board {
-  width: 450px;
+  width: 400px;
+  height: 400px;
   display: flex;
   flex-wrap: wrap;
 }
@@ -255,6 +256,11 @@ h1 {
   font-size: 5em;
   font-weight: 900;
   font-style: italic;
+}
+
+#newGame {
+  margin: 50px 0 0 0;
+  font-size: 14px;
 }
 
 input {

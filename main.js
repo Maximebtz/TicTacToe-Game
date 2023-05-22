@@ -159,8 +159,29 @@ function updateGameStatus(status) {
 function endGame() {
     // Déclarer en variable pour changer en dessous plusieurs éléments css
     let gameEndElement = document.getElementById('gameEnd');
-    gameEndElement.classList.add('smooth-appear');
-    gameEndElement.style.display = 'flex';
+        gameEndElement.classList.add('smooth-appear');
+        gameEndElement.style.display = 'flex';
 };
+
+function newGame() {
+
+    updateGameStatus("init");
+
+    let y = document.getElementById("gameEnd");
+    if (y.style.display == "none") {
+        y.style.display = "flex";
+    } else {
+        y.style.display = "none";
+    }
+
+    cells.forEach(cell => {
+    cell.innerHTML = ""; 
+    cell.addEventListener('click', playGame, { once: true });
+  });
+}
+
+document.getElementById("newGame").addEventListener("click", function() {
+    newGame() 
+})
 
 function reloadGame() {window.location.reload()};
