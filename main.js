@@ -43,6 +43,7 @@ let namePlayer2 = "";
 
 // Initialisation du joueur en cours
 let playerTurn = playerOne;
+let score = 0
 
 // Try to remove the first page where we can set players names  
 function setPlayerName() {
