@@ -1,13 +1,11 @@
 // Sélection des cellules du jeu
 const cells = document.querySelectorAll('[data-cell]');
 
-
 // Sélection des éléments d'affichage du statut du jeu et de la fin de partie
 const gameStatus = document.getElementById('gameStatus');
 const endGameStatus = document.getElementById('endGameStatus');
 
-
-// Création d'un input dans le HTML avec createElement pour choisir le nom des joueurs 
+// Création d'un input dans le HTML avec createElement pour choisir le nom des joueurs
 const setNames1 = document.querySelector("#setName1");
 const setNames2 = document.querySelector("#setName2");
 
@@ -23,29 +21,30 @@ inputName2.classList.add("setPlayerName");
 setNames1.appendChild(inputName1);
 setNames2.appendChild(inputName2);
 
-inputName1.addEventListener("click", function(){
-    inputName1.value = ""})
-      
-inputName2.addEventListener("click", function(){
-    inputName2.value = ""})
+inputName1.addEventListener("click", function () {
+    inputName1.value = "";
+});
 
-//Score
-let scorePlayerOne = document.getElementById("score-p-one")
-let scorePlayerTwo = document.getElementById("score-p-two")
+inputName2.addEventListener("click", function () {
+    inputName2.value = "";
+});
+
+// Scores des joueurs
+let scorePlayerOne = 0;
+let scorePlayerTwo = 0;
 
 // Symboles des joueurs
 const playerOne = 'X';
 const playerTwo = 'O';
 
-// nom des joueurs
+// Noms des joueurs
 let namePlayer1 = "";
 let namePlayer2 = "";
 
-// Initialisation du joueur en cours
+// Joueur en cours
 let playerTurn = playerOne;
-let score = 0
 
-// Try to remove the first page where we can set players names  
+// Fonction pour définir les noms des joueurs
 function setPlayerName() {
     namePlayer1 = inputName1.value;
     namePlayer2 = inputName2.value;
@@ -59,18 +58,16 @@ function setPlayerName() {
         x.style.display = "none";
     }
 
-    scorePlayerOne.innerHTML = namePlayer1
-    scorePlayerTwo.innerHTML = namePlayer2
+    updateScoreDisplay();
 }
 
-document.getElementById("inputPlayerName").addEventListener("click", function() {
+// Écouteur pour définir les noms des joueurs
+document.getElementById("inputPlayerName").addEventListener("click", function () {
     setPlayerName();
 });
 
-
 // Combinaisons gagnantes possibles
 const winningPatterns = [
-
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -79,10 +76,7 @@ const winningPatterns = [
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6]
-
 ];
-
-// winningPatterns.style.color = "red";
 
 // Ajout d'un écouteur de clic à chaque cellule
 cells.forEach(cell => {
@@ -98,18 +92,20 @@ function playGame(e) {
     if (checkWin(playerTurn)) {
         // Mise à jour du statut du jeu et fin de partie
         updateGameStatus("wins" + playerTurn);
-        return endGame();
+        endGame();
+        return;
     } else if (checkDraw()) {
         // Vérification du match nul et fin de partie
         updateGameStatus("draw");
-        return endGame();
+        endGame();
+        return;
     }
-    
+
     // Mise à jour du statut du jeu
     updateGameStatus(playerTurn);
-    
+
     // Passage au joueur suivant
-    playerTurn == playerOne ? playerTurn = playerTwo : playerTurn = playerOne;
+    playerTurn = (playerTurn === playerOne) ? playerTwo : playerOne;
 }
 
 // Vérification de la victoire d'un joueur
@@ -128,11 +124,10 @@ function checkDraw() {
     });
 }
 
-
 // Mise à jour du statut du jeu
 function updateGameStatus(status) {
     let statusText;
-    
+
     switch (status) {
         case 'X':
             statusText = `Au tour de ${namePlayer2} (O)`;
@@ -142,9 +137,11 @@ function updateGameStatus(status) {
             break;
         case 'winsX':
             statusText = `${namePlayer1} a gagné`;
+            scorePlayerOne++;
             break;
         case 'winsO':
             statusText = `${namePlayer2} a gagné`;
+            scorePlayerTwo++;
             break;
         case 'draw':
             statusText = "Egalité ! Personne ne gagne !";
@@ -153,24 +150,32 @@ function updateGameStatus(status) {
             statusText = `${namePlayer1} commence !`;
             break;
     }
-                        
+
     // Mise à jour de l'affichage du statut du jeu
     gameStatus.innerHTML = statusText;
     endGameStatus.innerHTML = statusText;
 }
-             
 
-                    
-// function setPlayerName() {document.getElementById('setNames').style.display = "none"};
+// Mise à jour de l'affichage des scores
+function updateScoreDisplay() {
+    const scorePlayerOneElement = document.getElementById("nb-point-player-one");
+    const scorePlayerTwoElement = document.getElementById("nb-point-player-two");
+
+    scorePlayerOneElement.textContent = scorePlayerOne;
+    scorePlayerTwoElement.textContent = scorePlayerTwo;
+}
+
+// Fonction de fin de partie
 function endGame() {
-    // Déclarer en variable pour changer en dessous plusieurs éléments css
     let gameEndElement = document.getElementById('gameEnd');
-        gameEndElement.classList.add('smooth-appear');
-        gameEndElement.style.display = 'flex';
-};
+    gameEndElement.classList.add('smooth-appear');
+    gameEndElement.style.display = 'flex';
 
+    updateScoreDisplay();
+}
+
+// Fonction pour démarrer une nouvelle partie
 function newGame() {
-
     updateGameStatus("init");
 
     let y = document.getElementById("gameEnd");
@@ -181,13 +186,22 @@ function newGame() {
     }
 
     cells.forEach(cell => {
-    cell.innerHTML = ""; 
-    cell.addEventListener('click', playGame, { once: true });
-  });
+        cell.innerHTML = "";
+        cell.addEventListener('click', playGame, { once: true });
+    });
 }
 
-document.getElementById("newGame").addEventListener("click", function() {
-    newGame() 
-})
+// Écouteur pour démarrer une nouvelle partie
+document.getElementById("newGame").addEventListener("click", function () {
+    newGame();
+});
 
-function reloadGame() {window.location.reload()};
+// Fonction pour recharger la page
+function reloadGame() {
+    window.location.reload();
+}
+
+// Écouteur pour recharger la page
+document.getElementById("reloadGame").addEventListener("click", function () {
+    reloadGame();
+});
